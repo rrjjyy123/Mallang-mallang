@@ -99,6 +99,7 @@
             --color-opening: #b36ae2;
             --color-closing: #4a90e2;
             --color-conflict: #27ae60;
+            --color-step: #8bc34a;
         }
 
         .card,
@@ -150,6 +151,27 @@
             border-color: var(--color-conflict);
         }
 
+        .card[data-category*='상황 알아보기'],
+        .selected-card[data-category*='상황 알아보기'],
+        .slideshow-card[data-category*='상황 알아보기'],
+        .card[data-category*='영향 살펴보기'],
+        .selected-card[data-category*='영향 살펴보기'],
+        .slideshow-card[data-category*='영향 살펴보기'],
+        .card[data-category*='방법 찾아보기'],
+        .selected-card[data-category*='방법 찾아보기'],
+        .slideshow-card[data-category*='방법 찾아보기'],
+        .card[data-category*='관계 다져가기'],
+        .selected-card[data-category*='관계 다져가기'],
+        .slideshow-card[data-category*='관계 다져가기'],
+        .card[data-category*='우리 같이 함께'],
+        .selected-card[data-category*='우리 같이 함께'],
+        .slideshow-card[data-category*='우리 같이 함께'],
+        .card[data-category*='한뼘 더 자라기'],
+        .selected-card[data-category*='한뼘 더 자라기'],
+        .slideshow-card[data-category*='한뼘 더 자라기'] {
+            border-color: var(--color-step);
+        }
+
         .card:hover {
             transform: translateY(-8px) scale(1.03);
             box-shadow: 0 16px 40px rgba(0, 0, 0, 0.18);
@@ -188,6 +210,15 @@
 
         .card[data-category*='갈등'] .card-label {
             background: var(--color-conflict);
+        }
+
+        .card[data-category*='상황 알아보기'] .card-label,
+        .card[data-category*='영향 살펴보기'] .card-label,
+        .card[data-category*='방법 찾아보기'] .card-label,
+        .card[data-category*='관계 다져가기'] .card-label,
+        .card[data-category*='우리 같이 함께'] .card-label,
+        .card[data-category*='한뼘 더 자라기'] .card-label {
+            background: var(--color-step);
         }
 
         /* 카드 본문 */
@@ -235,6 +266,15 @@
 
         .card[data-category*='갈등'] .card-keyword {
             background: #58d68d;
+        }
+
+        .card[data-category*='상황 알아보기'] .card-keyword,
+        .card[data-category*='영향 살펴보기'] .card-keyword,
+        .card[data-category*='방법 찾아보기'] .card-keyword,
+        .card[data-category*='관계 다져가기'] .card-keyword,
+        .card[data-category*='우리 같이 함께'] .card-keyword,
+        .card[data-category*='한뼘 더 자라기'] .card-keyword {
+            background: #a5d6a7;
         }
 
         /* 선택된 카드 영역 */
@@ -1414,6 +1454,31 @@
                 { id: 'community_new_10', question: '가장 행복했던 학교와 학년은 언제였고, 그 이유는 무엇인가요?', category: '공동체와의 관계' }
             ],
             conflict: [
+                // 1단계: 상황 알아보기 (상황의 이해)
+                { id: 'step1_1', question: '어떤 일이 일어났나요?', category: '상황 알아보기 (상황의 이해)' },
+                { id: 'step1_2', question: '왜 이런 일이 일어났다고 생각하나요?', category: '상황 알아보기 (상황의 이해)' },
+                { id: 'step1_3', question: '그 일이 일어났을 때, 가장 먼저 한 생각은 무엇인가요?', category: '상황 알아보기 (상황의 이해)' },
+                // 2단계: 영향 살펴보기 (영향의 확인)
+                { id: 'step2_1', question: '그 일이 일어났을 때, 마음은 어땠나요?', category: '영향 살펴보기 (영향의 확인)' },
+                { id: 'step2_2', question: '이번 일로 가장 큰 영향을 받은 사람은 누구인가요?', category: '영향 살펴보기 (영향의 확인)' },
+                { id: 'step2_3', question: '이번 일로 처하게 된 가장 큰 어려움은 무엇인가요?', category: '영향 살펴보기 (영향의 확인)' },
+                // 3단계: 방법 찾아보기 (자율/책임)
+                { id: 'step3_1', question: '어떻게 하면 아픔이 회복될 수 있을까요?', category: '방법 찾아보기 (자율/책임)' },
+                { id: 'step3_2', question: '어떤 일을 하면 상황을 조금 더 나아지게 할 수 있을까요?', category: '방법 찾아보기 (자율/책임)' },
+                { id: 'step3_3', question: '지금 할 수 있는 일은 무엇이 있을까요?', category: '방법 찾아보기 (자율/책임)' },
+                // 4단계: 관계 다져가기 / 관계 만들기
+                { id: 'step4_1', question: '앞으로 어떤 관계가 되기를 바라나요?', category: '관계 다져가기 / 관계 만들기' },
+                { id: 'step4_2', question: '다른 사람이 어떻게 바라봐 주기를 원하나요?', category: '관계 다져가기 / 관계 만들기' },
+                { id: 'step4_3', question: '다른 사람을 대할 때 어떻게 하면 좋을까요?', category: '관계 다져가기 / 관계 만들기' },
+                // 5단계: 우리 같이 함께 (모두의 노력)
+                { id: 'step5_1', question: '이번 일은 우리에게 어떤 영향을 주었나요?', category: '우리 같이 함께 (모두의 노력)' },
+                { id: 'step5_2', question: '친구들이 함께 노력해 주었으면 하는 것은 무엇인가요?', category: '우리 같이 함께 (모두의 노력)' },
+                { id: 'step5_3', question: '선생님 또는 부모님께 바라는 것은 무엇인가요?', category: '우리 같이 함께 (모두의 노력)' },
+                // 6단계: 한뼘 더 자라기 (성장의 기회)
+                { id: 'step6_1', question: '이번 일을 겪으면서 무엇을 배우고 느꼈나요?', category: '한뼘 더 자라기 (성장의 기회)' },
+                { id: 'step6_2', question: '대화를 통해 가장 크게 느낀 것은 무엇인가요?', category: '한뼘 더 자라기 (성장의 기회)' },
+                { id: 'step6_3', question: '만약, 이번과 비슷한 일이 있을 때 어떻게 행동해야 할까요?', category: '한뼘 더 자라기 (성장의 기회)' },
+                // 기존 갈등 해결과 회복 질문
                 { id: 'conflict_1', question: '나로 인해 생긴 어려움을 해결하기 위해 무엇을 할 수 있을까요?', category: '갈등 해결과 회복' },
                 { id: 'conflict_2', question: '잘못된 행동을 스스로 깨닫고 바로잡았던 경험이 있나요?', category: '갈등 해결과 회복' },
                 { id: 'conflict_3', question: '내가 생각하는 책임감있는 사람은 어떤 사람인가요?', category: '갈등 해결과 회복' },
